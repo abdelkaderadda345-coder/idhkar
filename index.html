@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7f4" />
+    <meta name="description" content="إدارة محلية متعددة المشاريع للادخار والدخل والمصروفات والصناديق والأصول." />
+    <title>خطوة — إدارة الادخار والماليات</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-frame">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#dashboard" data-view="dashboard" aria-label="Khatwa home">
+          <span class="brand-mark">خ</span>
+          <span class="brand-copy"><strong data-i18n="brand">خطوة</strong><small data-i18n="brandTag">ادخار أوضح، أهداف أقرب</small></span>
+        </a>
+        <div class="side-label" data-i18n="workspace">مساحة العمل</div>
+        <nav class="nav-list" aria-label="Main navigation">
+          <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span><span data-i18n="navDashboard">نظرة عامة</span></button>
+          <button class="nav-item" data-view="goals"><span class="nav-icon">◎</span><span data-i18n="navGoals">أهداف الادخار</span><span class="nav-count" id="goalCount">0</span></button>
+          <button class="nav-item" data-view="activity"><span class="nav-icon">↕</span><span data-i18n="navActivity">سجل العمليات</span></button>
+          <button class="nav-item" data-view="members"><span class="nav-icon">♙</span><span data-i18n="navMembers">المساهمون</span></button>
+          <button class="nav-item" data-view="finance"><span class="nav-icon">◈</span><span data-i18n="navFinance">الدخل والمصروفات</span></button>
+          <button class="nav-item" data-view="projects"><span class="nav-icon">▣</span><span data-i18n="navProjects">المشاريع</span></button>
+          <button class="nav-item" data-view="reports"><span class="nav-icon">▤</span><span data-i18n="navReports">التقارير</span></button>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="side-tip"><span class="tip-icon">✦</span><p data-i18n="tipText">كل هدف يبدأ بخطوة صغيرة. سجّل تقدمك لتبقى الصورة واضحة.</p></div>
+        <button class="nav-item settings-link" data-view="settings"><span class="nav-icon">⚙</span><span data-i18n="navSettings">الإعدادات والنسخ الاحتياطي</span></button>
+        <div class="sidebar-footer"><span class="status-dot"></span><span data-i18n="localData">بياناتك محفوظة على هذا الجهاز</span></div>
+      </aside>
+
+      <section class="main-column">
+        <header class="topbar">
+          <button class="mobile-menu icon-button" id="mobileMenu" aria-label="Open navigation">☰</button>
+          <div class="breadcrumb"><span data-i18n="brand">خطوة</span><span class="crumb-slash">/</span><strong id="pageTitle" data-i18n="navDashboard">نظرة عامة</strong></div>
+          <div class="top-actions">
+            <label class="sr-only" for="projectSelect" data-i18n="navProjects">المشاريع</label>
+            <select id="projectSelect" class="project-select" aria-label="Project"></select>
+            <button class="button button-small button-secondary" data-action="new-project" data-i18n="newProject">مشروع جديد</button>
+            <span class="today-label" id="todayLabel"></span>
+            <button class="icon-button theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">◐</button>
+            <label class="sr-only" for="languageSelect" data-i18n="language">اللغة</label>
+            <select id="languageSelect" class="language-select" aria-label="Language"><option value="ar">العربية</option><option value="fr">Français</option><option value="en">English</option></select>
+            <span class="avatar" title="Local user">م</span>
+          </div>
+        </header>
+        <main id="mainContent" tabindex="-1">
+          <section class="launch-notice">
+            <span class="launch-spinner" aria-hidden="true"></span>
+            <h1>يجري تشغيل التطبيق…</h1>
+            <p>إذا بقيت هذه الرسالة، تأكد أن ملفات المشروع كاملة في مجلد واحد ثم أعد تحميل الصفحة. إذا منع المتصفح التخزين المحلي، شغّل المجلد عبر خادم محلي.</p>
+          </section>
+        </main>
+        <footer class="app-footer"><span><strong data-i18n="brand">خطوة</strong> · <span data-i18n="version">الإصدار 1.0</span></span><span data-i18n="footerStatus">يعمل دون اتصال · التخزين محلي</span></footer>
+      </section>
+    </div>
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+    <div class="modal-root" id="modalRoot"></div>
+    <script defer src="./src/db.js"></script>
+    <script defer src="./src/engine.js"></script>
+    <script defer src="./src/finance.js"></script>
+    <script defer src="./src/backup.js"></script>
+    <script defer src="./src/i18n.js"></script>
+    <script defer src="./src/app.js"></script>
+  </body>
+</html>
